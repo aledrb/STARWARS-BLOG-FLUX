@@ -1,41 +1,66 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			]
+			personasLista: [],
+			planetasLista: [],
+			vehiculosLista: [],
+			favoritosLista: []
 		},
 		actions: {
-			// Use getActions to call a function within a fuction
+			setFavoritos: tituloFav => {
+				const store = getStore();
+				setStore({ favoritosLista: [...store.favoritosLista, tituloFav] });
+			},
+
+			fetchPersonas: () => {
+				const URL = "https://swapi.dev/api/people";
+				const OBJCONFIG = {
+					method: "GET",
+					headers: {
+						"Content-type": "aplication/json"
+					}
+				};
+
+				fetch(URL, OBJCONFIG)
+					.then(res => res.json())
+					.then(data => setStore({ personasLista: data.results }));
+			},
+			fetchPlanetas: () => {
+				const URL = "https://swapi.dev/api/planets/";
+				const OBJCONFIG = {
+					method: "GET",
+					headers: {
+						"Content-type": "aplication/json"
+					}
+				};
+
+				fetch(URL, OBJCONFIG)
+					.then(res => res.json())
+					.then(data => setStore({ planetasLista: data.results }));
+			},
+			fetchVehiculos: () => {
+				const URL = "https://swapi.dev/api/vehicles/";
+				const OBJCONFIG = {
+					method: "GET",
+					headers: {
+						"Content-type": "aplication/json"
+					}
+				};
+
+				fetch(URL, OBJCONFIG)
+					.then(res => res.json())
+					.then(data => setStore({ vehiculosLista: data.results }));
+			},
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
 			},
-			loadSomeData: () => {
-				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
-			},
+			loadSomeData: () => {},
 			changeColor: (index, color) => {
-				//get the store
 				const store = getStore();
-
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
 				const demo = store.demo.map((elm, i) => {
 					if (i === index) elm.background = color;
 					return elm;
 				});
-
-				//reset the global store
 				setStore({ demo: demo });
 			}
 		}
