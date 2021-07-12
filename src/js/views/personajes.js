@@ -18,7 +18,6 @@ export const Personajes = () => {
 					return (
 						<Card
 							key={index}
-							url="https://elcomercio.pe/resizer/CCzKYeli5rmsCSECl_r9VfrE8s4=/980x0/smart/filters:format(jpeg):quality(75)/arc-anglerfish-arc2-prod-elcomercio.s3.amazonaws.com/public/7IN5YML5RRFNBKOV2T3UVJ6VLI.jpg"
 							title={item.name}
 							gender={item.gender}
 							hair={item.hair_color}

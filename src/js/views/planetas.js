@@ -24,7 +24,6 @@ export const Planetas = () => {
 					return (
 						<Card
 							key={index}
-							url="https://reviewsyouread.files.wordpress.com/2021/03/10-more-star-wars-planets-as-countries.png"
 							title={item.name}
 							climate={item.climate}
 							gravity={item.gravity}

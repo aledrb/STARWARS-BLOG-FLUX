@@ -43,6 +43,5 @@ Card.propTypes = {
 	terrain: PropTypes.string,
 	model: PropTypes.string,
 	consumables: PropTypes.string,
-	vehicle_class: PropTypes.string,
-	url: PropTypes.string
+	vehicle_class: PropTypes.string
 };
