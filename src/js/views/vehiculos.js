@@ -22,6 +22,7 @@ export const Vehiculos = () => {
 							model={item.model}
 							consumables={item.consumables}
 							vehicle_class={item.vehicle_class}
+							link={"https://swapi.dev/api/vehicles/"}
 						/>
 					);
 				})}

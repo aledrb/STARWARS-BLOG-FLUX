@@ -11,6 +11,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const store = getStore();
 				setStore({ favoritosLista: [...store.favoritosLista, tituloFav] });
 			},
+			setEliminarFavoritos: titulofav => {
+				setStore({ favoritosLista: getStore().favoritosLista.filter(favoritos => favoritos !== titulofav) });
+			},
 
 			fetchPersonas: () => {
 				const URL = "https://swapi.dev/api/people";

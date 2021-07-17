@@ -1,8 +1,9 @@
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import { Context } from "../store/appContext"; //traermos el  contexto
+import { Context } from "../store/appContext";
 
 export const Navbar = () => {
+	const [listaFav, setListaFav] = useState([]);
 	const { store, actions } = useContext(Context);
 	return (
 		<nav className="navbar navbar-light bg-light mb-3">
@@ -25,7 +26,7 @@ export const Navbar = () => {
 					<button className="btn btn-primary">Planetas</button>
 				</Link>
 
-				<div className="dropdown">
+				<span className="dropdown">
 					<button
 						className="btn btn-secondary dropdown-toggle"
 						type="button"
@@ -39,12 +40,19 @@ export const Navbar = () => {
 						{store.favoritosLista.map((item, index) => {
 							return (
 								<a key={index} className="dropdown-item" href="#">
-									{item}
+									<span>{item}</span>
+									<button
+										className=""
+										onClick={() => {
+											actions.setEliminarFavoritos(item);
+										}}>
+										<span>X</span>
+									</button>
 								</a>
 							);
 						})}
 					</div>
-				</div>
+				</span>
 			</div>
 		</nav>
 	);

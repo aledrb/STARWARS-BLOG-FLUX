@@ -28,6 +28,7 @@ export const Planetas = () => {
 							climate={item.climate}
 							gravity={item.gravity}
 							terrain={item.terrain}
+							link={"https://swapi.dev/api/planets/"}
 						/>
 					);
 				})}

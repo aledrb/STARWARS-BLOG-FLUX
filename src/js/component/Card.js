@@ -21,7 +21,7 @@ export const Card = props => {
 						<p>{props.vehicle_class}</p>
 					</p>
 					<div className="row justify-content-between">
-						<a href="https://swapi.dev/api/people/1" className="btn btn-primary" style={{ color: "#fff" }}>
+						<a href={props.link} className="btn btn-primary" style={{ color: "#fff" }}>
 							Ver Mas
 						</a>
 						<a onClick={() => actions.setFavoritos(props.title)} href="#" className="btn btn-warning">
@@ -43,5 +43,7 @@ Card.propTypes = {
 	terrain: PropTypes.string,
 	model: PropTypes.string,
 	consumables: PropTypes.string,
-	vehicle_class: PropTypes.string
+	vehicle_class: PropTypes.string,
+	url: PropTypes.string,
+	link: PropTypes.string
 };

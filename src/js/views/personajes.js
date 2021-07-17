@@ -22,6 +22,7 @@ export const Personajes = () => {
 							gender={item.gender}
 							hair={item.hair_color}
 							eyes={item.eye_color}
+							link={"https://swapi.dev/api/people/"}
 						/>
 					);
 				})}
