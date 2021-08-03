@@ -9,7 +9,7 @@ export const Card = props => {
 			<div className="card">
 				<div className="card-body">
 					<h5 className="card-title">{props.title}</h5>
-					<p className="card-text">
+					<span className="card-text">
 						<p>{props.gender}</p>
 						<p>{props.hair}</p>
 						<p>{props.eyes}</p>
@@ -19,7 +19,7 @@ export const Card = props => {
 						<p>{props.model}</p>
 						<p>{props.consumables}</p>
 						<p>{props.vehicle_class}</p>
-					</p>
+					</span>
 					<div className="row justify-content-between">
 						<a href={props.link} className="btn btn-primary" style={{ color: "#fff" }}>
 							Ver Mas

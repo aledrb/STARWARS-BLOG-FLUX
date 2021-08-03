@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
+import Dropdown from "react-bootstrap/Dropdown";
 
 export const Navbar = () => {
 	const [listaFav, setListaFav] = useState([]);
@@ -25,22 +26,15 @@ export const Navbar = () => {
 				<Link to="/planetas">
 					<button className="btn btn-primary">Planetas</button>
 				</Link>
-
-				<span className="dropdown">
-					<button
-						className="btn btn-secondary dropdown-toggle"
-						type="button"
-						id="dropdownMenuButton"
-						data-toggle="dropdown"
-						aria-haspopup="true"
-						aria-expanded="false">
+				<Dropdown>
+					<Dropdown.Toggle variant="success" id="dropdown-basic">
 						Favoritos {store.favoritosLista.length}
-					</button>
-					<div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+					</Dropdown.Toggle>
+					<Dropdown.Menu>
 						{store.favoritosLista.map((item, index) => {
 							return (
-								<a key={index} className="dropdown-item" href="#">
-									<span>{item}</span>
+								<Dropdown.Item key={index}>
+									{item}
 									<button
 										className=""
 										onClick={() => {
@@ -48,11 +42,11 @@ export const Navbar = () => {
 										}}>
 										<span>X</span>
 									</button>
-								</a>
+								</Dropdown.Item>
 							);
 						})}
-					</div>
-				</span>
+					</Dropdown.Menu>
+				</Dropdown>
 			</div>
 		</nav>
 	);
